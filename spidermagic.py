@@ -56,5 +56,9 @@ for col in response.find_all(class_='compareCubeColumn'):
         img_name = "".join(line.split(' ')[1:-2])
         with open(f'cardImages/{img_name}.jpg', 'wb') as i:
             i.write(img.content)
+
+if carrds == {}:
+    raise ValueError("It looks like that card set doesn't exist!")
+    
 with open('cards.txt', 'w') as cr:
     cr.write(json.dumps(cards))
